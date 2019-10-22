@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Gweru Provincial Hospital - Employee Records</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+	<style>
+		body{
+			background-color:#d6e9c6;
+		}
+		td{
+			width:10%;
+			padding:2px;
+			font:13px;
+		}
+
+	</style>
+
+	<script>
+		$(document).ready(function(){
+		  $("table").click(function(){
+		    $(this).addclass('table');
+		  });
+		});
+	</script>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="{{ url_for('.users') }}">View Staff</a></li>
+      <li><a href="{{ url_for('.add_user_view') }}">Add Staff</a></li>
+      <li><a href="{{ url_for('.users') }}">Edit Staff</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Attalia Mbewe</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3>Employees List</h3>
+
+
+  <p style="background-color:#fff;">
+  	{% with messages = get_flashed_messages() %} 
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+
+<div class="table-responsive">
+	{{ table }}
+</div>
+
+</div>
+
+    
+       
+	
+
+  </body>
+</html>
